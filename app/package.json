@@ -1,0 +1,50 @@
+{
+  "name": "accounting-system",
+  "description": "Personal accounting system",
+  "homepage": "http://cromberg.blweb.ru",
+  "version": "1.2.3",
+  "main": "main.js",
+  "author": "Shloka Jain",
+  "license": "GPL",
+  "dependencies": {
+    "compare-versions": "^3.1.0",
+    "electron-config": "^1.0.0",
+    "jquery": "^3.2.1",
+    "jquery-ui-dist": "^1.12.1",
+    "minimist": "^1.2.0",
+    "moment": "^2.19.1",
+    "nedb": "^1.8.0",
+    "normalize.css": "^6.0.0"
+  },
+  "devDependencies": {
+    "electron-builder": "^19.45.6",
+    "electron-prebuilt": "^1.4.13"
+  },
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --dev",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "pac-win": "electron-packager win Accounting-App-by-Shloka-Jain --platform=win32 --arch=x64 --icon=build/icon.ico"
+  },
+  "build": {
+    "appId": "ru.blweb.cromberg",
+    "buildVersion": "1.2.3",
+    "win": {
+      "target": "portable",
+      "icon": "build/icon.ico"
+    },
+    "mac": {
+      "category": "public.app-category.finance",
+      "icon": "build/icon.icns"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "category": "Finance",
+      "icon": "build/icons/"
+    }
+  }
+}

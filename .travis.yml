@@ -1,0 +1,32 @@
+language: node_js
+
+node_js:
+  - "8"
+
+before_install:
+  - cd app
+
+install:
+  - npm install
+
+os:
+  - linux
+  - osx
+
+env:
+  - TARGET_ARCH=x64
+
+script:
+  - npm run dist
+
+deploy:
+  provider: releases
+  skip_cleanup: true
+  api_key: $GH_TOKEN
+  file_glob: true
+  file:
+    - "dist/Cromberg-*-x86_64.AppImage"
+    - "dist/Cromberg_*_amd64.deb"
+    - "dist/Cromberg-*.dmg"
+  on:
+    tags: true
